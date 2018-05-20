@@ -1,0 +1,394 @@
+@import (less) "normalize.css";
+@import (less) "reset.css";
+
+[data-sr] {
+  visibility: hidden;
+}
+
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after{
+    clear: both;
+  }
+}
+
+.clearfix {
+  .clearfix();
+}
+
+.content-width {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  .clearfix();
+}
+
+.header {
+  position: relative;
+  background: #fff;
+
+  .content-width {
+    height: 100px;
+  }
+
+  &__title {
+    float: left;
+    padding-top: 21px;
+  }
+
+  &__nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__nav-item {
+    float: left;
+
+    a {
+      display: block;
+      position: relative;
+      padding: 0 22px 18px;
+      margin-left: 5px;
+      color: #333;
+
+      &:after {
+        display: block;
+        content: " ";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: #ff9109;
+        border-radius: 2px;
+        transform: scaleX(0);
+        transition: all .3s;
+      }
+    }
+  }
+
+  &__nav-item:hover,
+  &__nav-item_current {
+
+    a {
+      &:after {
+        transform: scaleX(1);
+      };
+    }
+  }
+}
+
+
+.banner {
+  height: 550px;
+  background: url(../img/banner_01.jpg) center no-repeat;
+}
+
+.bg_gray {
+  background: #f7f7f7;
+}
+
+.section-title {
+  text-align: center;
+  padding: 30px 0 30px;
+  letter-spacing: 8px;
+
+  &__bg {
+    color: #efefef;
+    font-size: 45px;
+    font-family: Arial;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    position: relative;
+    margin-top: -15px;
+    color: #323333;
+    font-size: 24px;
+  }
+}
+
+.hot-products {
+  &:extend(.clearfix all);
+  padding-bottom: 55px;
+
+  &__item {
+    .box-shadow();
+
+    &:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0, .08);
+    }
+
+    > a {
+      display: block;
+      height: 100%;
+    }
+  }
+
+}
+
+.box-shadow() {
+  box-shadow: 0 0 8px rgba(0,0,0, .08);
+  background: #fff;
+  transition: all .3s;
+}
+
+.float-left {
+  float: left;
+}
+
+
+.industry-news {
+  &:extend(.clearfix all);
+
+  &__decoration {
+    float: left;
+  }
+
+  &__list {
+    &:extend(.clearfix all);
+
+    margin-left: 410px;
+    padding-bottom: 60px;
+
+    &-item {
+      .box-shadow();
+      display: block;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        box-shadow: 0 8px 30px rgba(0,0,0, .08);
+
+        h2 {
+          color: #ff9109 !important;
+        }
+      }
+    }
+
+    &-time {
+      float: left;
+      width: 130px;
+      padding-top: 30px;
+      text-align: center;
+      vertical-align: middle;
+
+      > strong {
+        font-size: 26px;
+        color: #333;
+        font-weight: 400;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      > span {
+        color: #666;
+        font-size: 16px;
+      }
+    }
+
+    &-text {
+      height: 120px;
+      padding-top: 20px;
+      margin-left: 130px;
+      padding-right: 20px;
+      line-height: 1.5;
+      overflow: hidden;
+
+      > h2 {
+        color: #333;
+        margin-bottom: 10px;
+        transition: color .3s;
+      }
+
+      > p {
+        color: #999;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.app-area {
+  &:extend(.clearfix all);
+  padding-bottom: 60px;
+
+  &__item {
+    float: left;
+    width: 131px;
+    margin-right: 82px;
+    text-align: center;
+    color: #666;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:before {
+      content: " ";
+      display: block;
+      width: 131px;
+      height: 151px;
+      margin-bottom: 20px;
+      background: url(../img/icon.png) no-repeat;
+      transition: all .3s;
+    }
+
+
+    &:hover {
+
+    }
+  }
+}
+
+.icon-position-loop (@n, @i: 0, @ico-width: 131, @ico-height: 151, @x-gap: 1, @y-gap: 0) when (@i <= @n) {
+  .app-area__item_icon@{i}:before {
+    background-position: -((@ico-width + @x-gap) * @i) * 1px 0;
+  }
+  .app-area__item_icon@{i}:hover:before {
+    background-position: -((@ico-width + @x-gap) * @i) * 1px -(@ico-height * 1px);
+  }
+
+  .icon-position-loop(@n, (@i + 1));
+}
+
+.app-area {
+  .icon-position-loop(6);
+}
+
+.footer {
+
+  &__aside {
+    float: left;
+    height: 308px;
+    line-height: 308px;
+    width: 210px;
+    background: #013574;
+    text-align: center;
+
+    > img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__content {
+    line-height: 1.8;
+    margin-left: 250px;
+    color: #fff;
+  }
+
+  &__product {
+    padding: 40px 0 10px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #014b9f;
+
+    &-item {
+      margin-right: 40px;
+      color: #fff;
+    }
+  }
+
+  &__address {
+    border-bottom: 1px solid #014b9f;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.inner-top {
+  background: #eee;
+
+  .content-width {
+    height: 260px;
+    background-position: right center;
+    background-repeat: no-repeat;
+  }
+
+  h1 {
+    padding: 100px 0 20px;
+    font-size: 20px;
+    color: #333;
+  }
+
+  &__nav {
+    font-size: 0;
+
+    &-item {
+      display: inline-block;
+      position: relative;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 18px;
+      margin-right: 1px;
+      font-size: 14px;
+      color: #fff;
+      background: #028b9f;
+      cursor: pointer;
+
+      &:after {
+        display: block;
+        content: " ";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: #ff9109;
+        border-radius: 2px;
+        transform: scaleX(0);
+        transition: all .3s;
+      }
+
+      &_current,
+      &:hover {
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+.inner-content {
+  background: #f6f6f6;
+  .content-width {
+    background: #fff;
+  }
+}
+
+.artical {
+  padding: 60px 30px 35px;
+  line-height: 1.6;
+
+  p {
+    text-indent: 2em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+}
+
+.bread-crumb {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 33px;
+
+  a&__item {
+    color: #666;
+
+    &:after {
+      content: ">";
+      display: inline-block;
+      padding: 0 8px;
+    }
+  }
+}

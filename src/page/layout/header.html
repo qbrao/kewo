@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="content-width">
+    <div class="header__title">
+      <h1><img src="../img/logo.jpg" alt=""></h1>
+    </div>
+    <nav class="header__nav">
+      <ul class="clearfix">
+        <li @@if (context.index !== 'current') { class="header__nav-item" } @@if (context.index === 'current') { class="header__nav-item header__nav-item_current" }><a href="index.html">首页</a></li>
+        <li @@if (context.aboutUs !== 'current') { class="header__nav-item" } @@if (context.aboutUs === 'current') { class="header__nav-item header__nav-item_current" }><a href="about_us.html">关于我们</a></li>
+        <li class="header__nav-item"><a href="#">科沃品牌</a></li>
+        <li class="header__nav-item"><a href="#">新闻资讯</a></li>
+        <li class="header__nav-item"><a href="#">技术支持</a></li>
+        <li class="header__nav-item"><a href="#">下载中心</a></li>
+        <li class="header__nav-item"><a href="#">联系我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
