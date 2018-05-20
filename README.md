@@ -29,32 +29,32 @@
 ## 页面配置
 ```
 kewo
-  |---dist 编译后的目录（浏览器可以识别的页面）
-  |---src 开发目录
-    |---img 图片资源
-    |---js js文件
-    |---page 页面
-      |--- layout 公用组件（不生成页面）
-        |---footer.html 公用底部 （包括版权，联系方式，友情链接等公用组件）
-        |---head.html 页面头部（包括引用css，js，各种meta等公用代码）
-        |---header.html 公用头部 （包括全局导航和logo等公用组件）
-      |--- index.html 网站首页
-      |--- about_us.html 关于我们
-    |---style 全局样式
-      |--- index.less 页面样式文件
+  |---dist                            编译后的目录（浏览器可以识别的页面）
+  |---src                             开发目录
+    |---img                           图片资源
+    |---js                            js文件
+    |---page                          页面
+      |--- layout                     公用组件（不生成页面）
+        |---footer.html               公用底部 （包括版权，联系方式，友情链接等公用组件）
+        |---head.html                 页面头部（包括引用css，js，各种meta等公用代码）
+        |---header.html               公用头部 （包括全局导航和logo等公用组件）
+      |--- index.html                 网站首页
+      |--- about_us.html              关于我们
+    |---style                         样式
+      |--- index.less                 页面样式文件
       |--- normalize.less
       |--- reset.less
-  |---.babelrc babel配置文件，能够使用es6新特性。
-  |---.editorconfig 编辑器配置文件。统一代码风格。
-  |---.gitigonre git忽略配置文件。
-  |---gulpfile.js gulp配置文件。
+  |---.babelrc                        babel配置文件，能够使用es6新特性。
+  |---.editorconfig                   编辑器配置文件。统一代码风格。
+  |---.gitigonre                      git忽略配置文件。
+  |---gulpfile.js                     gulp配置文件。
   |---package.json
 ```
 
 ## 注意事项
 
 - css命名。采用BEM形式。
-- 文件名。用下划线作为连字符，不使用驼峰或中划线等方式。
+- 文件名。用下划线作为连字符，不使用驼峰或中划线等方式，全部小写。
 - 缩进。使用2个空格。
 - 使用[scrollreveal.js](https://github.com/jlmakes/scrollreveal)实现页面滚动动画。
 - 使用less做css预编译。如果不会用直接在less文件里面写css样式就行。
